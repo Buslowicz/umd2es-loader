@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script type="module">
+  import { load } from "../../loader.js";
+  import "../test1.js";
+  import "./test2.js";
+
+  document.body.appendChild(Object.assign(document.createElement("p"), {
+    className: `${load("../test1.js").name === "test1" ? "success" : "failure"}`,
+    textContent: `module.exports.name = "test1";`
+  }));
+  document.body.appendChild(Object.assign(document.createElement("p"), {
+    className: `${load("./test2.js").name === "test2" ? "success" : "failure"}`,
+    textContent: `module.exports = { name: "test2" };`
+  }));
+</script>
+</body>
+</html>

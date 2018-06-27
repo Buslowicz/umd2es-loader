@@ -1,0 +1,15 @@
+{
+  "name": "umd2es-loader",
+  "version": "0.1.0",
+  "description": "Tool allowing to use CommonJS and AMD packages as ES modules (kinda).",
+  "main": "loader.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": {
+    "email": "draccoz+npm@gmail.com",
+    "name": "Daniel \"Dracco\" Busłowicz",
+    "url": "https://github.com/Draccoz"
+  },
+  "license": "ISC"
+}

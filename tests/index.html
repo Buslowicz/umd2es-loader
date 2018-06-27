@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="module">
+  import { load } from "../loader.js";
+  import "./test1.js";
+  import "./deep/test2.js";
+
+  document.body.appendChild(Object.assign(document.createElement("p"), {
+    className: `${load("./test1.js").name === "test1" ? "success" : "failure"}`,
+    textContent: `module.exports.name = "test1";`
+  }));
+  document.body.appendChild(Object.assign(document.createElement("p"), {
+    className: `${load("./deep/test2.js").name === "test2" ? "success" : "failure"}`,
+    textContent: `module.exports = { name: "test2" };`
+  }));
+
+  document.body.appendChild(Object.assign(document.createElement("h2"), { textContent: "Deep" }));
+  document.body.appendChild(Object.assign(document.createElement("iframe"), { src: "./deep/index.html" }));
+</script>
+
+</body>
+</html>
